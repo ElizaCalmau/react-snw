@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Page1 from './components/Page1';
+import Footer from './components/Footer';
 
 
 
@@ -15,6 +16,7 @@ const App = () => {
      <Header />
      <Navbar />
      <Page1 />
+     <Footer />
      
     </div>
   )
