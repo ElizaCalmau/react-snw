@@ -1,10 +1,10 @@
 
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Page1 from './components/Page1';
-import Footer from './components/Footer';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import Page1 from './components/Page1/Page1';
+
 
 
 
@@ -16,7 +16,7 @@ const App = () => {
      <Header />
      <Navbar />
      <Page1 />
-     <Footer />
+     
      
     </div>
   )
