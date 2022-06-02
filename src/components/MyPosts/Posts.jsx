@@ -8,9 +8,9 @@ return( <div>
             <textarea></textarea>
             <button>Add</button>
             <div className={s.posts}>
-              <Post />
-              <Post />
-              <Post />
+              <Post message='Hello, world!' likesCount='11'/>
+              <Post message='its me!' likesCount='1'/>
+              <Post message='okay' likesCount='50'/>
             </div>
           </div>
        </div> )
