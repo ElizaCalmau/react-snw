@@ -1,21 +1,12 @@
 .messages {
     background-color: cadetblue;
+    display: grid;
+    grid-template-columns: 3fr 9fr;
     
 }
-
-.dialogs{
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+.friends{
+    
 }
-
-.dialogsItems{
-
-}
-
-.dialog{
-    padding: 15px;
-}
-
 .messageItems{
 
 }
