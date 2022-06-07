@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar';
 import Page1 from './components/Page1/Page1';
 
 
+
 const App = () => {
   return (
     <div className='app_wrapper'>
@@ -19,7 +20,6 @@ const App = () => {
               <Routes>
               <Route path='/page1' element={<Page1 />} />
               <Route path='/messages' element={<Messages />} />
-              
               </Routes>
             </div>
       

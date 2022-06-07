@@ -2,3 +2,24 @@
     background-color: cadetblue;
     
 }
+
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems{
+
+}
+
+.dialog{
+    padding: 15px;
+}
+
+.messageItems{
+
+}
+
+.mess{
+    padding: 15px;
+}
