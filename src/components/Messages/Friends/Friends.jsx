@@ -4,7 +4,7 @@ import s from './Friends.module.css'
 
 const Friends = (props) => {
     return (
-       <NavLink to={'./messages/' + props.id}>
+       <NavLink to={'./' + props.id}>
 
        <div className={s.user}>
                 <img src='https://static.thenounproject.com/png/801408-200.png'/>
