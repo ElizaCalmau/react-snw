@@ -10,7 +10,9 @@ import Page1 from './components/Page1/Page1';
 
 
 
-const App = () => {
+const App = (props) => {
+  
+
   return (
     <div className='app_wrapper'>
       
@@ -18,8 +20,8 @@ const App = () => {
           <Navbar />
             <div className='app-wrapper-content'>
               <Routes>
-              <Route path='/page1' element={<Page1 />} />
-              <Route path='/messages' element={<Messages />} />
+              <Route path='/page1' element={<Page1 posts={props.post}/>} />
+              <Route path='/messages' element={<Messages friends={props.friendsData} messages={props.messageData}/>} />
               </Routes>
             </div>
       
