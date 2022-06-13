@@ -14,7 +14,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App post={state.profilePage.post} friendsData={state.messagesPage.friendsData} messageData={state.messagesPage.messageData}/>
+    <App post={state.profilePage.post} 
+      friendsData={state.messagesPage.friendsData} 
+      messageData={state.messagesPage.messageData}
+      myFriends={state.sidebar.myFriends}/>
     </BrowserRouter>
   </React.StrictMode>
 );

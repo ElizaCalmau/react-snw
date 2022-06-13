@@ -17,7 +17,7 @@ const App = (props) => {
     <div className='app_wrapper'>
       
           <Header />
-          <Navbar />
+          <Navbar myFriends={props.myFriends}  />
             <div className='app-wrapper-content'>
               <Routes>
               <Route path='/page1' element={<Page1 posts={props.post}/>} />

@@ -19,7 +19,7 @@ return( <div className={s.posts}>
             </div>
             
             <div className={s.posts}>
-              {postData};
+              {postData}
             </div>
           </div>
        </div> )

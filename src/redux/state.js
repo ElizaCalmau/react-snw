@@ -21,7 +21,17 @@ let state = {
             {text: 'Wanna beer?', id: 2},
             {text: 'Woof', id: 3}
         ]
-    }
+    },
+
+    sidebar: {
+        myFriends:[
+           {name: 'Liza'} ,
+           {name: 'Andrew'},
+           {name: 'Mosya'}
+        ]
+       }
     
-    }
+}
+
+
     export default state;
