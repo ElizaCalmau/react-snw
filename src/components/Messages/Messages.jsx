@@ -10,9 +10,16 @@ import s from './Messages.module.css'
 // let friend = props.friendsData.map( f => <Friends nick={f.nick} id={f.id}/>)
 // let message = props.messageData.map( m => <Letters text={m.text}/>);
 const Messages = (props) => {
+    let newMessage = React.createRef();
+    let Send = () =>{
+        props.sendMessage();
+    }
+    let onMessageChange = () => {
+        let text = newMessage.current.value;
+        props.updateNewTextMessage(text);
+    }
     let friend = props.friends.map( f => <Friends nick={f.nick} id={f.id}/>)
-    let message = props.messages.map( m => <Letters text={m.text}/>);
-    
+    let message = props.messages.map( m => <Letters text={m.text} />);
     return(
         <div className={s.messages}>
                 <div className={s.friends}>
@@ -20,6 +27,10 @@ const Messages = (props) => {
                 </div>                    
                     <div className={s.messageItems}>
                         {message}
+                        <div>
+        <textarea ref={newMessage} value={props.newTextMessage} onChange={onMessageChange}></textarea>
+        <button onClick={Send}>Send</button>
+        </div>
                     </div>
             </div>
         
