@@ -12,12 +12,16 @@ const Posts = (props) => {
   let newPostElement = React.createRef();
   
   let addPosts = () => {
-    props.addPost();
+   // props.addPost();
+   let action = {type : 'ADD-POST'}
+   props.dispatch(action)
   }
 
     let onPostChange = () => {
       let text = newPostElement.current.value;
-      props.updateNewPostText(text);
+      //props.updateNewPostText(text);
+      let action = {type : 'UPDATE-NEW-POST-TEXT', newText : text};// action это объект а type: newText: - это его свойства
+      props.dispatch(action)// вызов объекта 
     }
   
 

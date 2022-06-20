@@ -12,11 +12,15 @@ import s from './Messages.module.css'
 const Messages = (props) => {
     let newMessage = React.createRef();
     let Send = () =>{
-        props.sendMessage();
+        //props.sendMessage();
+        let action = {type : 'SEND-MESSAGE'};
+        props.dispatch(action)
     }
-    let onMessageChange = () => {
+    let onMessageChange = () => {//текущие символы помещаются в state
         let text = newMessage.current.value;
-        props.updateNewTextMessage(text);
+        //props.updateNewTextMessage(text);
+        let action = {type: 'UPDATE-NEW-TEXT-MESSAGE', newMessage: text};
+        props.dispatch(action);
     }
     let friend = props.friends.map( f => <Friends nick={f.nick} id={f.id}/>)
     let message = props.messages.map( m => <Letters text={m.text} />);

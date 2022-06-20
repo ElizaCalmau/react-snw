@@ -22,14 +22,16 @@ const App = (props) => {
               <Routes>
               <Route path='/page1' element={<Page1
                posts={props.post} 
-               addPost={props.addPost} 
+               
+               dispatch={props.dispatch} // instead functions
+
                newPostText={props.newPostText}
-               updateNewPostText={props.updateNewPostText}/>} />
+               />} />
               <Route path='/messages' element={<Messages friends={props.friendsData} 
                 messages={props.messageData}
                 newTextMessage={props.newTextMessage}
-                updateNewTextMessage={props.updateNewTextMessage}
-                sendMessage={props.sendMessage}/>} />
+                
+                dispatch={props.dispatch}/>} />
               </Routes>
             </div>
       

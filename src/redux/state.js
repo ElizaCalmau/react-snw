@@ -35,50 +35,85 @@ let store={
            },
     
         },
-        getState(){
-            return this._state;
-        },
-
+        
     _callSubscriber() {
             console.log('State changed');
         },
 
-    addPost() {
+
+
+    getState(){
+            return this._state;
+        },
+        subscribe (observer){
+            this._callSubscriber = observer;
+            },
+
+
+        
+    // addPost() {
       
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
-            this._state.profilePage.post.push(newPost);
-            this._state.profilePage.newPostText='';
-            this._callSubscriber(this._state);
-        },
+    //         let newPost = {
+    //             id: 5,
+    //             message: this._state.profilePage.newPostText,
+    //             likesCount: 0
+    //         };
+    //         this._state.profilePage.post.push(newPost);
+    //         this._state.profilePage.newPostText='';
+    //         this._callSubscriber(this._state);
+    //     },
 
-    updateNewPostText (newText) {
-        this._state.profilePage.newPostText = newText;
+    // updateNewPostText (newText) {
+    //     this._state.profilePage.newPostText = newText;
             
-        this._callSubscriber(this._state);
-        },
+    //     this._callSubscriber(this._state);
+    //     },
 
-    sendMessage () {
-            let newMessage = {
-                text: this._state.messagesPage.newTextMessage,
-                id: 4
+    // sendMessage () {
+    //         let newMessage = {
+    //             text: this._state.messagesPage.newTextMessage,
+    //             id: 4
+    //         }
+    //         this._state.messagesPage.messageData.push(newMessage);
+    //         this._state.messagesPage.newTextMessage=''
+    //         this._callSubscriber(this._state);
+    //     },
+
+    // updateNewTextMessage (newMessage) {
+    //     this._state.messagesPage.newTextMessage = newMessage;
+    //     this._callSubscriber(this._state)
+    //     },
+
+        dispatch(action) {//ACTION - OBJECT
+            if(action.type === 'ADD-POST'){
+                let newPost = {
+                    id: 5,
+                    message: this._state.profilePage.newPostText,
+                    likesCount: 0
+                };
+                this._state.profilePage.post.push(newPost);
+                this._state.profilePage.newPostText='';
+                this._callSubscriber(this._state);
+            } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+                this._state.profilePage.newPostText = action.newText;//добавляем таким образом параметр объекта action
+            
+                this._callSubscriber(this._state);
+
+            } else if (action.type === 'SEND-MESSAGE'){ // эта ф-ция пушит в массив сообщений то, что на данный момент находится в textarea
+                let newMessage = {
+                    text: this._state.messagesPage.newTextMessage,
+                    id: 4
+                }
+                this._state.messagesPage.messageData.push(newMessage);
+                this._state.messagesPage.newTextMessage=''
+                this._callSubscriber(this._state);
+            } else if (action.type === 'UPDATE-NEW-TEXT-MESSAGE'){
+                this._state.messagesPage.newTextMessage = action.newMessage;
+                this._callSubscriber(this._state)
             }
-            this._state.messagesPage.messageData.push(newMessage);
-            this._state.messagesPage.newTextMessage=''
-            this._callSubscriber(this._state);
-        },
-
-    updateNewTextMessage (newMessage) {
-        this._state.messagesPage.newTextMessage = newMessage;//?
-        this._callSubscriber(this._state)
-        },
-    subscribe (observer){
-        this._callSubscriber = observer;
+            }
         }
-}
+
 
 
  

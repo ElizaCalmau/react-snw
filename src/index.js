@@ -23,10 +23,9 @@ root.render(
       newPostText={store.getState().profilePage.newPostText}
       newTextMessage={store.getState().messagesPage.newTextMessage}
       
-      addPost = {store.addPost.bind(store)}
-      updateNewPostText={store.updateNewPostText.bind(store)}
-      updateNewTextMessage={store.updateNewTextMessage.bind(store)}
-      sendMessage={store.sendMessage.bind(store)}/>
+      dispatch={store.dispatch.bind(store)}
+      
+      />
     </BrowserRouter>
   </React.StrictMode>
 );
