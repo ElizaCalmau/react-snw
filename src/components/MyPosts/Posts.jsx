@@ -1,27 +1,21 @@
 import React from 'react';
 import s from './Posts.module.css';
 import Post from './Post/Post';
-
-
-// let post= [{message:'hello, world!', likesCount: 10}, {message: 'It is me!', likesCount: 22}, {message: 'okay', likesCount: 25}]
-
+import { addPostActionCreator } from '../../redux/profilePage';
+import { updateNewPostTextActionCreator } from '../../redux/profilePage';
 
 const Posts = (props) => {
-  let postData = props.post.map( (p) =>< Post message={p.message} likesCount={p.likesCount}/>)
-  
+  let postData = props.post.map( (p) =>< Post message={p.message} likesCount={p.likesCount}/>)// с помощью мапинга отрисовываем джсх компоненту 
+
   let newPostElement = React.createRef();
   
   let addPosts = () => {
-   // props.addPost();
-   let action = {type : 'ADD-POST'}
-   props.dispatch(action)
+   props.dispatch(addPostActionCreator())
   }
 
     let onPostChange = () => {
       let text = newPostElement.current.value;
-      //props.updateNewPostText(text);
-      let action = {type : 'UPDATE-NEW-POST-TEXT', newText : text};// action это объект а type: newText: - это его свойства
-      props.dispatch(action)// вызов объекта 
+      props.dispatch(updateNewPostTextActionCreator(text))// вызов объекта 
     }
   
 

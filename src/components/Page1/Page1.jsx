@@ -3,7 +3,6 @@ import s from './Page1.module.css';
 import Posts from '../MyPosts/Posts.jsx';
 import ProfileInfo from '../../ProfileInfo/ProfileInfo';
 const Page1 = (props) => {
-  // let post= [{message:'hello, world!', likesCount: 10}, {message: 'It is me!', likesCount: 22}, {message: 'okay', likesCount: 25}]
 
     return(<div className={s.page1}>
        

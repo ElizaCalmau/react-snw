@@ -2,25 +2,18 @@ import React from 'react';
 import Friends from './Friends/Friends';
 import Letters from './Letters/Letters';
 import s from './Messages.module.css'
+import { sendMessageActionCreator } from '../../redux/messagesPage';
+import { updateNewTextMessageActionCreator} from '../../redux/messagesPage';
 
-
-// let friendsData = [{nick: 'Liza', id: 1}, {nick: 'Andrew', id: 2}, {nick: 'Mosya', id: 3}]
-// let messageData = [{text: 'Hi', id: 1}, {text: 'Wanna beer?', id: 2}, {text: 'Woof', id: 3}]
-
-// let friend = props.friendsData.map( f => <Friends nick={f.nick} id={f.id}/>)
-// let message = props.messageData.map( m => <Letters text={m.text}/>);
 const Messages = (props) => {
     let newMessage = React.createRef();
-    let Send = () =>{
-        //props.sendMessage();
-        let action = {type : 'SEND-MESSAGE'};
-        props.dispatch(action)
+    let Send = () =>{  
+        props.dispatch(sendMessageActionCreator())
     }
+
     let onMessageChange = () => {//текущие символы помещаются в state
         let text = newMessage.current.value;
-        //props.updateNewTextMessage(text);
-        let action = {type: 'UPDATE-NEW-TEXT-MESSAGE', newMessage: text};
-        props.dispatch(action);
+        props.dispatch(updateNewTextMessageActionCreator(text));
     }
     let friend = props.friends.map( f => <Friends nick={f.nick} id={f.id}/>)
     let message = props.messages.map( m => <Letters text={m.text} />);
