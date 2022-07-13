@@ -20,7 +20,7 @@ const profileReducer = (state = initialState, action) => {
       likesCount: 0
     };
     state.post.push(newPost);
-    // state.newPostText='';
+    state.newPostText='';
     
   } else if (action.type === 'UPDATE_NEW_POST_TEXT'){
     state.newPostText = action.newText;

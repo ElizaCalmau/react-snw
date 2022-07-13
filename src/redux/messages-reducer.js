@@ -53,7 +53,7 @@ export let sendMessageActionCreator = () => {
 export let updateNewTextMessageActionCreator = (text) => {
     return{
         type: 'UPDATE_NEW_TEXT_MESSAGE',
-         message: text
+        message: text
     }
 }
 

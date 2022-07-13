@@ -3,17 +3,18 @@ import Friends from './Friends/Friends';
 import Letters from './Letters/Letters';
 import s from './Messages.module.css'
 import { sendMessageActionCreator } from '../../redux/messages-reducer';
-import { updateNewTextMessageActionCreator} from '../../redux/messages-reducer';
 
 const Messages = (props) => {
     let newMessage = React.createRef();
     let Send = () =>{  
-        props.dispatch(sendMessageActionCreator())
+        //props.dispatch(sendMessageActionCreator())
+        props.sendMessage();
     }
 
     let onMessageChange = () => {//текущие символы помещаются в state
         let text = newMessage.current.value;
-        props.dispatch(updateNewTextMessageActionCreator(text));
+        //props.dispatch(updateNewTextMessageActionCreator(text));
+        props.updateNewTextMessage(text);
     }
     let friend = props.friends.map( f => <Friends nick={f.nick} id={f.id}/>)
     let message = props.messages.map( m => <Letters text={m.text} />);
