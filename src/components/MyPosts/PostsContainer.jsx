@@ -1,24 +1,22 @@
 import React from 'react';
-import s from './Posts.module.css';
-import Post from './Post/Post';
 import Posts from './Posts';
-import { addPostActionCreator } from '../../redux/profilePage';
-import { updateNewPostTextActionCreator } from '../../redux/profilePage';
+import { addPostActionCreator } from '../../redux/profile-reducer';
+import { updateNewPostTextActionCreator } from '../../redux/profile-reducer';
 
 
 const PostsContainer = (props) => {
 
   
-  let onAddPosts = () => {
-    props.dispatch(addPostActionCreator())
+  let onaddPosts = () => {
+    props.store.dispatch(addPostActionCreator())
   }
-
-    let onPostChange = () => {
-      let action=(updateNewPostTextActionCreator())
-      props.dispatch(action)
+    let onPostChange = (text) => {
+      let action = updateNewPostTextActionCreator(text);
+      props.store.dispatch(action);
     }
-  
+  debugger;
 
-return( <Posts updateNewPostText = {onPostChange} addPost={onAddPosts} post={props.posts}/>)
+return( <Posts updateNewPostText = {onPostChange} addPost={onaddPosts} post={props.post} newPostText={props.newPostText} dispatch={props.dispatch}/>)
 }
        export default PostsContainer;
+       

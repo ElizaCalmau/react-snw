@@ -1,7 +1,7 @@
-import propfilePage from './profilePage';
-import messagesPage from './messagesPage';
-import profilePage from './profilePage';
-import sidebar from './sidebar';
+import propfilePage from './profile-reducer';
+import messagesPage from './messages-reducer';
+import profilePage from './profile-reducer';
+import sidebar from './sidebar-reducer';
 
 let store={
     _state: {

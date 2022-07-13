@@ -2,8 +2,8 @@ import React from 'react';
 import Friends from './Friends/Friends';
 import Letters from './Letters/Letters';
 import s from './Messages.module.css'
-import { sendMessageActionCreator } from '../../redux/messagesPage';
-import { updateNewTextMessageActionCreator} from '../../redux/messagesPage';
+import { sendMessageActionCreator } from '../../redux/messages-reducer';
+import { updateNewTextMessageActionCreator} from '../../redux/messages-reducer';
 
 const Messages = (props) => {
     let newMessage = React.createRef();
