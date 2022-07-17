@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +16,7 @@ let rerenderEntireTree = () => {
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <Provider store={store}>
     <App store={store}
      post={store.getState().profilePage.post} 
       friendsData={store.getState().messagesPage.friendsData} 
@@ -23,10 +24,10 @@ root.render(
       myFriends={store.getState().sidebar.myFriends}
       newPostText={store.getState().profilePage.newPostText}
       newTextMessage={store.getState().messagesPage.newTextMessage}
-      
+      state={store.getState()}
       dispatch={store.dispatch.bind(store)}
-      
       />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

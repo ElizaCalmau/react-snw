@@ -25,7 +25,7 @@ const App = (props) => {
                posts={props.post} 
                store={props.store}
                dispatch={props.dispatch} // instead functions
-
+               state={props.state}
                newPostText={props.newPostText}
                />} />
               <Route path='/messages' element={<MessagesContainer friends={props.friendsData} 
