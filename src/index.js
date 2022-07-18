@@ -16,7 +16,7 @@ let rerenderEntireTree = () => {
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Provider store={store}>
+    <Provider store={store}  dispatch={store.dispatch.bind(store)}>
     <App store={store}
      post={store.getState().profilePage.post} 
       friendsData={store.getState().messagesPage.friendsData} 
