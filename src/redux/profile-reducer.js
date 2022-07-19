@@ -12,19 +12,30 @@ newPostText:'it-kamasutra'
 }
 const profileReducer = (state = initialState, action) => {
 
+  let stateCopy;
+
   if(action.type === 'ADD_POST'){
-    
-    let newPost = {
-      id: 5,
+     let newPost = {
       message: state.newPostText,
-      likesCount: 0
+      likesCount: state.post.likesCount
     };
-    state.post.push(newPost);
-    state.newPostText='';
+    return {
+      ...state,
+      newPostText:'',
+      post: [...state.post, newPost]
+    }
+   
     
+    // stateCopy.post.push(newPost);
+    // stateCopy.newPostText='';
+    // return stateCopy;
   } else if (action.type === 'UPDATE_NEW_POST_TEXT'){
-    state.newPostText = action.newText;
-    
+    return{
+      ...state,
+      newPostText: action.newText
+    }
+    // stateCopy.newPostText = action.newText;
+    // return stateCopy;
   }
   
   return state;

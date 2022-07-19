@@ -2,22 +2,20 @@ import React from 'react';
 import Friends from './Friends/Friends';
 import Letters from './Letters/Letters';
 import s from './Messages.module.css'
-import { sendMessageActionCreator } from '../../redux/messages-reducer';
 
 const Messages = (props) => {
     let newMessage = React.createRef();
     let Send = () =>{  
-        //props.dispatch(sendMessageActionCreator())
         props.sendMessage();
     }
 
-    let onMessageChange = () => {//текущие символы помещаются в state
+    let onMessageChange = () => {
         let text = newMessage.current.value;
-        //props.dispatch(updateNewTextMessageActionCreator(text));
         props.updateNewTextMessage(text);
     }
-    let friend = props.friends.map( f => <Friends nick={f.nick} id={f.id}/>)
-    let message = props.messages.map( m => <Letters text={m.text} />);
+    let state = props.messagesPage;
+    let friend = state.friendsData.map( f => <Friends nick={f.nick} key={f.id} id={f.id}/>)
+    let message = state.messageData.map( m => <Letters text={m.text} key={m.id}/>);
     return(
         <div className={s.messages}>
                 <div className={s.friends}>
@@ -26,7 +24,7 @@ const Messages = (props) => {
                     <div className={s.messageItems}>
                         {message}
                         <div>
-        <textarea ref={newMessage} value={props.newTextMessage} onChange={onMessageChange}></textarea>
+        <textarea ref={newMessage} value={state.newTextMessage} onChange={onMessageChange}></textarea>
         <button onClick={Send}>Send</button>
         </div>
                     </div>

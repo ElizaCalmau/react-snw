@@ -1,5 +1,4 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { sendMessageActionCreator } from '../../redux/messages-reducer';
 import { updateNewTextMessageActionCreator} from '../../redux/messages-reducer';
 import Messages from'./Messages'
@@ -24,9 +23,10 @@ import {connect} from 'react-redux';
 
 let mapStateToProps = (state) => {
     return {
-        friends: state.messagesPage.friendsData,
-        messages: state.messagesPage.messageData,
-        newTextMessage: state.messagesPage.newTextMessage
+        messagesPage: state.messagesPage
+        // friends: state.messagesPage.friendsData,
+        // messages: state.messagesPage.messageData,
+        // newTextMessage: state.messagesPage.newTextMessage
     }
 }
 

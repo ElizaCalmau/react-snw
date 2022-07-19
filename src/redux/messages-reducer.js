@@ -15,33 +15,34 @@ let initialState = {
     newTextMessage:'it-kamasutra'
 }
 const messagesReducer = (state = initialState, action) => {
-    if (action.type === 'UPDATE_NEW_TEXT_MESSAGE'){
-    state.newTextMessage = action.message;
-    }else if (action.type === 'SEND_MESSAGE'){
+
+    
+    if (action.type === 'SEND_MESSAGE'){
         let newMessage = {
             text: state.newTextMessage,
-            id: 4
         }
-        state.messageData.push(newMessage);
-        state.newTextMessage=''
+        return{// возвращаем копию стейта
+            ...state,// state copy
+            messageData: [...state.messageData, newMessage], //copy of array of messages, push newMessage
+            newTextMessage: ''
+            
+        }
+
+    }else if (action.type === 'UPDATE_NEW_TEXT_MESSAGE'){
+
+           return{
+        ...state,
+        newTextMessage: action.message
+        }
+
+    // stateCopy.newTextMessage = action.message; 
+     
+    // return stateCopy;
+        // stateCopy.messageData.push(newMessage);
+        // stateCopy.newTextMessage='';
+        // return stateCopy;
     }  
     return state;
-
-    // switch(action.type){
-    //     case UPDATE_NEW_TEXT_MESSAGE: 
-    //     state.newTextMessage = action.message;
-    //     return state;
-    //     case SEND_MESSAGE:
-    //         let newMessage = {
-    //                         text: state.newTextMessage,
-    //                         id: 4
-    //                     }
-    //                     state.messageData.push(newMessage);
-    //                     state.newTextMessage=''
-    //                     return state;
-    //                     default: return state;
-
-    // }
 }
 
 export let sendMessageActionCreator = () => {

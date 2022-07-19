@@ -1,11 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SideFriends from './SideFriends';
-
 import s from './Navbar.module.css'
-console.log(s);
+
 const Navbar = (props) => {
-    let sideFriends = props.myFriends.map( sF => <SideFriends name={sF.name} />)
+    let sideFriends = props.myFriends.map( sF => <SideFriends name={sF.name} key={sF.id} />)
     return (
         <nav className= {s.nav}>
         <div className= {s.item}><NavLink to='/page1' className= { navData => navData.isActive ? s.active : s.item }> Profile</NavLink></div>
